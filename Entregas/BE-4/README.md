@@ -70,7 +70,7 @@ O projeto foi implementado em Node.js com Express utilizando um banco de dados r
 
 ### 1. Cadastro e Login de Usuários:
 
-    Esta funcionalidade permite que usuários se cadastrem e façam login no sistema. O sistema suporta três tipos de usuários: funcionários, RH (administradores) e candidatos.
+Esta funcionalidade permite que usuários se cadastrem e façam login no sistema. O sistema suporta três tipos de usuários: funcionários, RH (administradores) e candidatos.
     
 ### Fluxo de Cadastro:
 
@@ -95,7 +95,7 @@ O projeto foi implementado em Node.js com Express utilizando um banco de dados r
 
 ### 2. Análise de dados demográficos dos funcionários e candidatos:
 
-    Esta funcionalidade permite ao RH analisar os dados demográficos dos funcionários e candidatos à vagas, fornecendo insights valiosos sobre a composição demográfica do quadro de colaboradores e candidatos.
+Esta funcionalidade permite ao RH analisar os dados demográficos dos funcionários e candidatos à vagas, fornecendo insights valiosos sobre a composição demográfica do quadro de colaboradores e candidatos.
 
 ### Processo de Análise:
 
@@ -112,7 +112,7 @@ O projeto foi implementado em Node.js com Express utilizando um banco de dados r
 
 ### 3. Cadastro e Listagem de vagas:
 
-    Esta funcionalidade permite ao departamento de RH cadastrar novas vagas de emprego disponíveis na empresa e listar as vagas existentes para que os candidatos possam visualizá-las e se candidatar.
+Esta funcionalidade permite ao departamento de RH cadastrar novas vagas de emprego disponíveis na empresa e listar as vagas existentes para que os candidatos possam visualizá-las e se candidatar.
 
 ### Fluxo do Cadastro de Vagas:
 
@@ -170,50 +170,43 @@ npm run dev
 
 ## Nossa Squad
 
-<style>
-.member-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-</style>
-
 <table>
   <tr>
     <td align="center">
-      <img class="member-img" src="https://avatars.githubusercontent.com/u/42976966?v=4" alt="Imagem do Membro 1"/><br>
+      <img src="https://avatars.githubusercontent.com/u/42976966?v=4" alt="Imagem do Membro 1" style="width: 100px; height: 100px; border-radius: 50%;"/><br>
       <a href="https://github.com/Sownatta">Wilson Rocha</a><br>
     </td>
     <td align="center">
-      <img class="member-img" src="https://avatars.githubusercontent.com/u/121477907?v=4" alt="Imagem do Membro 2"/><br>
+      <img src="https://avatars.githubusercontent.com/u/121477907?v=4" alt="Imagem do Membro 2" style="width: 100px; height: 100px; border-radius: 50%;"/><br>
       <a href="https://github.com/FlightofIcarus">Ícaro Santos</a><br>
     </td>
     <td align="center">
-      <img class="member-img" src="https://avatars.githubusercontent.com/u/147253362?v=4" alt="Imagem do Membro 3"/><br>
+      <img src="https://avatars.githubusercontent.com/u/147253362?v=4" alt="Imagem do Membro 3" style="width: 100px; height: 100px; border-radius: 50%;"/><br>
       <a href="https://github.com/PatrickPSouza">Patrick Souza</a><br>
     </td>
     <td align="center">
-      <img class="member-img" src="https://avatars.githubusercontent.com/u/134095546?v=4" alt="Imagem do Membro 3"/><br>
+      <img src="https://avatars.githubusercontent.com/u/134095546?v=4" alt="Imagem do Membro 3" style="width: 100px; height: 100px; border-radius: 50%;"/><br>
       <a href="https://github.com/MariliaPinheiroAlves">Marília Pinheiro Alves</a><br>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img class="member-img" src="https://avatars.githubusercontent.com/u/80291199?v=4" alt="Imagem do Membro 3"/><br>
+      <img src="https://avatars.githubusercontent.com/u/80291199?v=4" alt="Imagem do Membro 3" style="width: 100px; height: 100px; border-radius: 50%;"/><br>
       <a href="https://github.com/SilvioLucasDev">Silvio Lucas</a><br>
     </td>
     <td align="center">
-      <img class="member-img" src="https://avatars.githubusercontent.com/u/26415404?v=4" alt="Imagem do Membro 3"/><br>
+      <img src="https://avatars.githubusercontent.com/u/26415404?v=4" alt="Imagem do Membro 3" style="width: 100px; height: 100px; border-radius: 50%;"/><br>
       <a href="https://github.com/adailtonasp">Adailton Silva Palhano</a><br>
     </td>
     <td align="center">
-      <img class="member-img" src="https://avatars.githubusercontent.com/u/99753415?v=4" alt="Imagem do Membro 3"/><br>
+      <img src="https://avatars.githubusercontent.com/u/99753415?v=4" alt="Imagem do Membro 3" style="width: 100px; height: 100px; border-radius: 50%;"/><br>
       <a href="https://github.com/DevAugustomelo">Augusto Melo</a><br>
     </td>
     <td align="center">
-      <img class="member-img" src="https://avatars.githubusercontent.com/u/110869779?v=4" alt="Imagem do Membro 3"/><br>
+      <img src="https://avatars.githubusercontent.com/u/110869779?v=4" alt="Imagem do Membro 3" style="width: 100px; height: 100px; border-radius: 50%;"/><br>
       <a href="https://github.com/muriloma">Murilo Andrade</a><br>
     </td>
   </tr>
 </table>
+
 
