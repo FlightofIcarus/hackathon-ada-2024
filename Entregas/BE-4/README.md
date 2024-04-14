@@ -19,9 +19,17 @@ Como resultado, nossa capacidade de identificar lacunas na diversidade, implemen
     - [Não Funcionais](#não-funcionais)
 - [Funcionalidades](#funcionalidades)
     - [1.Cadastro e Login de Usuários](#1-cadastro-e-login-de-usuários)
+        - [Fluxo de Cadastro](#fluxo-de-cadastro)
+        - [Fluxo de Login](#fluxo-de-login)
+        - [Divisão de Perfis de Usuários](#divisão-de-perfis-de-usuários)
     - [2.Análise de dados demográficos dos funcionários e candidatos](#2-análise-de-dados-demográficos-dos-funcionários-e-candidatos)
+        - [Processo de Análise](#processo-de-análise)
+        - [Apresentação de Resultados:](#apresentação-de-resultados)
     - [3.Cadastro e Listagem de vagas](#3-cadastro-e-listagem-de-vagas)
+        - [Fluxo do Cadastro de Vagas](#fluxo-do-cadastro-de-vagas)
+        - [Fluxo de Listagem das vagas](#fluxo-de-listagem-das-vagas)
 - [Instalar e Rodar o Projeto](#instalar-e-rodar-o-projeto)
+- [Nossa Squad](#nossa-squad)
 
 ## Objetivo do Projeto
 
@@ -128,45 +136,51 @@ Esta funcionalidade permite ao departamento de RH cadastrar novas vagas de empre
 
 ## Instalar e Rodar o Projeto
 
-Para utilizar esta aplicação certifique-se de ter instalodo o `Node.js` LTS à partir da v.X.X.X (versão de suporte de longo prazo) e `npm (Node Package Manager)`
+Rodar a nossa aplicação em sua máquina local é uma tarefa simples.
 
-<!-- ### Instalação
+### Clone o repositório:
 
-1 - Clonar o repositório:
-
-Execute o comando no terminal
-
-SSH
-```bash
-git clone git@github.com:adailtonasp/adahack-2024-backend.git
-```
-HTTPS
 ```bash
 git clone https://github.com/adailtonasp/adahack-2024-backend.git
 ```
 
-2 - Navegue até o diretório do projeto:
+### Dependências Globais
+
+Você precisa ter as seguintes dependências instaladas:
+
+-` Node.js LTS v18` (ou qualquer versão superior)
+
+### Dependências Locais
+
+Com o repositório clonado e as dependências globais instaladas, navegue até o diretório do projeto:
 
 ```bash
 cd adahack-2024-backend/Entregas/BE-4
 ```
-3 - Instale as dependências:
+
+E instale as dependências locais do projeto:
+
 ```bash
 npm install
 ```
-4 - Configure as variáveis de ambiente:
 
-Existe um arquivo na raiz do projeto, `.env.example` com todas as variáveis de ambiente utilizadas na aplicação.
+### Rodar o Projeto
 
-Para utilizar, deve renomear o arquivo para `.env` e alterar o valor das variáveis de acordo com sua necessidade.
-
-### Uso
-
-Para iniciar a aplicação, execute o comando no terminal:
+Para rodar o projeto localmente, basta executar o comando abaixo:
 
 ```bash
-npm run dev
-``` -->
+npm rund dev
+```
+
+Isto irá automaticamente rodar serviços como Banco de dados e Servidor Web e irá o expor no seguinte endereço:
+
+```bash
+http://localhost:3000/
+```
+
+Observações:
+- Para derrubar todos os serviços, basta utilizar as teclas `CTRL+C`, que é o padrão dos terminais para matar processos.
+- Você pode conferir todas as variáveis de ambiente utilizadas na aplicação dentro do arquivo `.env.example` encontrado na raiz do projeto. Para utilizar, você deve renomear o arquivo para `.env`.
 
 ## Nossa Squad
 
