@@ -161,7 +161,7 @@ git clone https://github.com/adailtonasp/adahack-2024-backend.git
 
 Você precisa ter as seguintes dependências instaladas:
 
--` Node.js LTS v18` (ou qualquer versão superior)
+- `Node.js LTS v18` (ou qualquer versão superior)
 
 ### Dependências Locais
 
