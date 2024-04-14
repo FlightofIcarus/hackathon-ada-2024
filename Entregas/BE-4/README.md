@@ -57,7 +57,7 @@ Abaixo está a lista de todas as principais ferramentas e frameworks/libraries u
 
 ![Jest](https://jestjs.io/img/jest-badge.svg)
 
-🐶Husky
+🐶`Husky`
 
 ## Requisitos
 
