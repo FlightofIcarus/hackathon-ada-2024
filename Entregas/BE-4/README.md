@@ -42,9 +42,22 @@ O objetivo deste projeto é desenvolver uma solução de software para o setor d
 
 Esperamos que essa solução nos ajude a criar um ambiente de trabalho mais inclusivo, equitativo e acolhedor para todos os nossos colaboradores, promovendo uma cultura de diversidade e respeito mútuo.
 
-## Sobre a Aplicação
+## Ferramentas Utilizadas
 
-O projeto foi implementado em Node.js com Express utilizando um banco de dados realacional. Foi desenvolvido sobre o design pattern (...), utilizando a arquitetura (...).
+Abaixo está a lista de todas as principais ferramentas e frameworks/libraries usadas na construção do projeto:
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+![ExpressJs](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+
+![NodeJs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+
+
+![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+
+![Jest](https://jestjs.io/img/jest-badge.svg)
+
+🐶Husky
 
 ## Requisitos
 
