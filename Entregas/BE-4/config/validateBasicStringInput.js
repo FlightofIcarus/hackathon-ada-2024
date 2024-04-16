@@ -1,0 +1,3 @@
+function validateBasicStringInput(input) {
+    
+}

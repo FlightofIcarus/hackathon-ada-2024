@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const setGetRouters = require('../../config/routersFunctions/setGetRouter')
-const setPostRouters = require('../../config/routersFunctions/setPostRouter')
-const setPutRouters = require('../../config/routersFunctions/setPutRouter')
-const setDeleteRouters = require('../../config/routersFunctions/setDeleteRouter')
+const routesSetters = require('./routesSetters/routesSetters')
 const routerController = require('../controllers/controllers')
+const getController = require('../controllers/getController');
 
-setGetRouters(router, '/', routerController);
-setGetRouters(router, '/api/employees', )
-setGetRouters(router, '/api/employees/{id}', )
-setGetRouters(router, '/api/data-analysis/employees', )
-setGetRouters(router, '/api/data-analysis/candidates', )
-setGetRouters(router, '/api/jobs', )
-setGetRouters(router, '/api/jobs/{id}', )
-setGetRouters(router, '/api/candidates', )
-setGetRouters(router, '/api/candidates/{id}', )
+const service = () => {console.log('serviço');}
+
+routesSetters.setGetRouters(router, '/', routerController);
+routesSetters.setGetRouters(router, '/api/employees', (req, res) => {getController(req, res, service)})
+// routesSetters.setGetRouters(router, '/api/employees/{id}', )
+// routesSetters.setGetRouters(router, '/api/data-analysis/employees', )
+// routesSetters.setGetRouters(router, '/api/data-analysis/candidates', )
+// routesSetters.setGetRouters(router, '/api/jobs', )
+// routesSetters.setGetRouters(router, '/api/jobs/{id}', )
+// routesSetters.setGetRouters(router, '/api/candidates', )
+// routesSetters.setGetRouters(router, '/api/candidates/{id}', )
 
 module.exports = router;
 
