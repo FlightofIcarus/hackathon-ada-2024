@@ -7,10 +7,11 @@ const routerController = require('../controllers/controllers')
 const getController = require('../controllers/getController');
 
 const service = () => {console.log('serviço');}
+
+//get routers
+
 // router.use('/api-docs', swaggerUi.serve);
-
 // routesSetters.setGetRouters(router, '/api-docs', swaggerUi.setup(swaggerDocument))
-
 routesSetters.setGetRouters(router, '/', routerController);
 routesSetters.setGetRouters(router, '/api/employees', (req, res) => {getController(req, res, service)})
 // routesSetters.setGetRouters(router, '/api/employees/{id}', )
@@ -21,8 +22,35 @@ routesSetters.setGetRouters(router, '/api/employees', (req, res) => {getControll
 // routesSetters.setGetRouters(router, '/api/candidates', )
 // routesSetters.setGetRouters(router, '/api/candidates/{id}', )
 
+//post routers
+
+// routesSetters.setPostRouters(router, '/api/employees', )
+// routesSetters.setPostRouters(router, '/api/login/employees', )
+// routesSetters.setPostRouters(router, '/api/login/candidates', )
+// routesSetters.setPostRouters(router, '/api/jobs', )
+// routesSetters.setPostRouters(router, '/api/candidates', )
+
+//put routers
+
+// routesSetters.setPutRouters(router, '/api/employees/{id}', )
+// routesSetters.setPutRouters(router, '/api/jobs/{id}', )
+// routesSetters.setPutRouters(router, '/api/candidates/{id}', )
+
+//patch routers
+
+// routesSetters.setPatchRouters(router, '/api/employees/{id}', )
+// routesSetters.setPatchRouters(router, '/api/jobs/{id}', )
+// routesSetters.setPatchRouters(router, '/api/candidates/{id}', )
+
+//delete routers
+
+// routesSetters.setDeleteRouters(router, '/api/employees/{id}', )
+// routesSetters.setDeleteRouters(router, '/api/jobs/{id}', )
+// routesSetters.setDeleteRouters(router, '/api/candidates/{id}', )
+
 module.exports = router;
 
+//MAPEAMENTO DE ROTAS
 
 // FUNCIONÁRIOS:
 // POST /api/employees
