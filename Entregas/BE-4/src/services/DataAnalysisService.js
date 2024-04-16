@@ -3,17 +3,21 @@ async function analyzeUserData(Model, tableName) {
         const demographics = await Model.findAll({
             attributes: [
                 [Model.sequelize.fn('COUNT', Model.sequelize.col('id')), 'total'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'white' THEN 1 ELSE 0 END")), 'white_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'black' THEN 1 ELSE 0 END")), 'black_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'hispanic' THEN 1 ELSE 0 END")), 'hispanic_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'asian' THEN 1 ELSE 0 END")), 'asian_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'male' THEN 1 ELSE 0 END")), 'male_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'female' THEN 1 ELSE 0 END")), 'female_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'branco' THEN 1 ELSE 0 END")), 'branco_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'preto' THEN 1 ELSE 0 END")), 'preto_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'pardo' THEN 1 ELSE 0 END")), 'pardo_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'hispânico' THEN 1 ELSE 0 END")), 'hispânico_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'asiático' THEN 1 ELSE 0 END")), 'asiático_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'indígena' THEN 1 ELSE 0 END")), 'indígena_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'masculino' THEN 1 ELSE 0 END")), 'masculino_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'feminino' THEN 1 ELSE 0 END")), 'feminino_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'transgênero' THEN 1 ELSE 0 END")), 'transgênero_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'não_binário' THEN 1 ELSE 0 END")), 'não_binário_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN sexual_orientation = 'heterosexual' THEN 1 ELSE 0 END")), 'heterosexual_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN sexual_orientation = 'homosexual' THEN 1 ELSE 0 END")), 'homosexual_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN sexual_orientation = 'bisexual' THEN 1 ELSE 0 END")), 'bisexual_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN sexual_orientation = 'other' THEN 1 ELSE 0 END")), 'other_count'],
-                [Model.sequelize.fn('AVG', Model.sequelize.col('pwd')), 'pwd_percentage']
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN sexual_orientation = 'transsexual' THEN 1 ELSE 0 END")), 'transsexual_count'],
+                [Model.sequelize.fn('AVG', Model.sequelize.col('pcd')), 'pcd_percentage']
             ],
             where: {},
             tableName
@@ -23,22 +27,26 @@ async function analyzeUserData(Model, tableName) {
             const totalEntries = demographics[0].dataValues.total;
             const diversityPercentages = {
                 ethnicity: {
-                    white: Math.round((demographics[0].dataValues.white_count / totalEntries) * 100),
-                    black: Math.round((demographics[0].dataValues.black_count / totalEntries) * 100),
-                    hispanic: Math.round((demographics[0].dataValues.hispanic_count / totalEntries) * 100),
-                    asian: Math.round((demographics[0].dataValues.asian_count / totalEntries) * 100)
+                    branco: Math.round((demographics[0].dataValues.branco_count / totalEntries) * 100),
+                    preto: Math.round((demographics[0].dataValues.preto_count / totalEntries) * 100),
+                    pardo: Math.round((demographics[0].dataValues.pardo_count / totalEntries) * 100),
+                    hispânico: Math.round((demographics[0].dataValues.hispânico_count / totalEntries) * 100),
+                    asiático: Math.round((demographics[0].dataValues.asiático_count / totalEntries) * 100),
+                    indígena: Math.round((demographics[0].dataValues.indígena_count / totalEntries) * 100)
                 },
                 gender: {
-                    male: Math.round((demographics[0].dataValues.male_count / totalEntries) * 100),
-                    female: Math.round((demographics[0].dataValues.female_count / totalEntries) * 100)
+                    masculino: Math.round((demographics[0].dataValues.masculino_count / totalEntries) * 100),
+                    feminino: Math.round((demographics[0].dataValues.feminino_count / totalEntries) * 100),
+                    transgênero: Math.round((demographics[0].dataValues.transgênero_count / totalEntries) * 100),
+                    não_binário: Math.round((demographics[0].dataValues.não_binário_count / totalEntries) * 100)
                 },
                 sexualOrientation: {
                     heterosexual: Math.round((demographics[0].dataValues.heterosexual_count / totalEntries) * 100),
                     homosexual: Math.round((demographics[0].dataValues.homosexual_count / totalEntries) * 100),
                     bisexual: Math.round((demographics[0].dataValues.bisexual_count / totalEntries) * 100),
-                    other: Math.round((demographics[0].dataValues.other_count / totalEntries) * 100)
+                    transsexual: Math.round((demographics[0].dataValues.transsexual_count / totalEntries) * 100)
                 },
-                pwd: Math.round(demographics[0].dataValues.pwd_percentage)
+                pcd: Math.round(demographics[0].dataValues.pcd_percentage)
             };
 
             return {
