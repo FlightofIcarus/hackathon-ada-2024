@@ -6,9 +6,7 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {
-    
-  },
+  "scripts": {},
   "keywords": [
     "diversidade",
     "inclusão",
@@ -37,12 +35,12 @@
   "author": "Squad BE-04",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jest": "^29.7.0",
-    "sequelize": "^6.37.3"
-  },
-  "devDependencies": {
-
+    "morgan": "^1.10.0",
+    "sequelize": "^6.37.3",
+    "swagger-ui-express": "^5.0.0"
   }
 }

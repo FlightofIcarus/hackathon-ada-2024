@@ -1,3 +1,5 @@
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../../swagger.json');
 const express = require('express');
 const router = express.Router();
 const routesSetters = require('./routesSetters/routesSetters')
@@ -5,6 +7,9 @@ const routerController = require('../controllers/controllers')
 const getController = require('../controllers/getController');
 
 const service = () => {console.log('serviço');}
+// router.use('/api-docs', swaggerUi.serve);
+
+// routesSetters.setGetRouters(router, '/api-docs', swaggerUi.setup(swaggerDocument))
 
 routesSetters.setGetRouters(router, '/', routerController);
 routesSetters.setGetRouters(router, '/api/employees', (req, res) => {getController(req, res, service)})
