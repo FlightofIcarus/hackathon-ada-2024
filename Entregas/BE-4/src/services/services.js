@@ -50,10 +50,62 @@ async function deleteEmployee(db, employeeId) {
     }
 }
 
+async function analyzeUserData(db, table) {
+    try {
+        const [result] = await db.query(`
+            SELECT
+                COUNT(*) AS total,
+                SUM(CASE WHEN ethnicity = 'white' THEN 1 ELSE 0 END) AS white_count,
+                SUM(CASE WHEN ethnicity = 'black' THEN 1 ELSE 0 END) AS black_count,
+                SUM(CASE WHEN ethnicity = 'hispanic' THEN 1 ELSE 0 END) AS hispanic_count,
+                SUM(CASE WHEN ethnicity = 'asian' THEN 1 ELSE 0 END) AS asian_count,
+                SUM(CASE WHEN gender = 'male' THEN 1 ELSE 0 END) AS male_count,
+                SUM(CASE WHEN gender = 'female' THEN 1 ELSE 0 END) AS female_count,
+                SUM(CASE WHEN sexual_orientation = 'heterosexual' THEN 1 ELSE 0 END) AS heterosexual_count,
+                SUM(CASE WHEN sexual_orientation = 'homosexual' THEN 1 ELSE 0 END) AS homosexual_count,
+                SUM(CASE WHEN sexual_orientation = 'bisexual' THEN 1 ELSE 0 END) AS bisexual_count,
+                SUM(CASE WHEN sexual_orientation = 'other' THEN 1 ELSE 0 END) AS other_count,
+                AVG(pwd) * 100 AS pwd_percentage
+            FROM 
+                ${table}
+        `);
+
+        if (result.length > 0) {
+            return {
+                totalEntries: result[0].total,
+                diversityPercentages: {
+                    ethnicity: {
+                        white: Math.round((result[0].white_count / result[0].total) * 100),
+                        black: Math.round((result[0].black_count / result[0].total) * 100),
+                        hispanic: Math.round((result[0].hispanic_count / result[0].total) * 100),
+                        asian: Math.round((result[0].asian_count / result[0].total) * 100)
+                    },
+                    gender: {
+                        male: Math.round((result[0].male_count / result[0].total) * 100),
+                        female: Math.round((result[0].female_count / result[0].total) * 100)
+                    },
+                    sexualOrientation: {
+                        heterosexual: Math.round((result[0].heterosexual_count / result[0].total) * 100),
+                        homosexual: Math.round((result[0].homosexual_count / result[0].total) * 100),
+                        bisexual: Math.round((result[0].bisexual_count / result[0].total) * 100),
+                        other: Math.round((result[0].other_count / result[0].total) * 100)
+                    },
+                    pwd: Math.round(result[0].pwd_percentage)
+                }
+            };
+        } else {
+            throw new Error(`Não foi possível obter os dados de análise para a tabela ${table}.`);
+        }
+    } catch (error) {
+        throw new Error(`Erro ao analisar dados da tabela ${table}: ${error.message}`);
+    }
+}
+
 module.exports = {
     getAllEmployees,
     getEmployeeById,
     registerEmployee,
     updateEmployee,
     deleteEmployee,
+    analyzeUserData,
 }
