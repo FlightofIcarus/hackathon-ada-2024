@@ -1,0 +1,1 @@
+## Arquivo onde os testes são idealizados baseados nas funcionalidades básicas da API, de forma a usar parte da filosofia TDD, criando os testes e guiando a codificação pelos critérios de aceites deles.
