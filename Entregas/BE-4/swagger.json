@@ -353,157 +353,6 @@
           }
         ]
       },
-      "patch": {
-        "tags": [
-          "Cadastro de Funcionários"
-        ],
-        "summary": "Atualizar Parcialmente Funcionário",
-        "description": "Atualiza parcialmente as informações de um funcionário cadastrado no sistema",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id do usuário a ser ter componentes atualizados",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Objeto JSON contendo os campos a serem atualizados no funcionário",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "number"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "position": {
-                    "type": "string"
-                  },
-                  "department": {
-                    "type": "string"
-                  },
-                  "employee-registration": {
-                    "type": "number"
-                  },
-                  "gender": {
-                    "type": "string"
-                  },
-                  "sexual_orientation": {
-                    "type": "string"
-                  },
-                  "ethnicity": {
-                    "type": "string"
-                  },
-                  "pwd": {
-                    "type": "boolean"
-                  }
-                }
-              },
-              "example": {
-                "id": 20,
-                "name": "Amy Lee",
-                "position": "Senior",
-                "department": "Back-End",
-                "employee-registration": 10202401,
-                "gender": "cis female",
-                "sexual_orientation": "heterosexual",
-                "ethnicity": "asian",
-                "pwd": false
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Requisição bem-sucedida, funcionário atualizado com sucesso",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "position": {
-                      "type": "string"
-                    },
-                    "department": {
-                      "type": "string"
-                    },
-                    "employee-registration": {
-                      "type": "number"
-                    },
-                    "gender": {
-                      "type": "string"
-                    },
-                    "sexual_orientation": {
-                      "type": "string"
-                    },
-                    "ethnicity": {
-                      "type": "string"
-                    },
-                    "pwd": {
-                      "type": "boolean"
-                    }
-                  }
-                },
-                "example": {
-                  "id": 20,
-                  "name": "Amy Lee",
-                  "position": "Senior",
-                  "department": "Back-End",
-                  "employee-registration": 10202401,
-                  "gender": "cis female",
-                  "sexual_orientation": "heterosexual",
-                  "ethnicity": "asian",
-                  "pwd": false
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Requisição inválida"
-          },
-          "401": {
-            "description": "Não autorizado - falha na autenticação"
-          },
-          "403": {
-            "description": "Proibido - falta de permissão"
-          },
-          "404": {
-            "description": "Funcionário não encontrado"
-          },
-          "422": {
-            "description": "Exceção de Validação"
-          },
-          "500": {
-            "description": "Erro interno do servidor. Por favor, tente novamente mais tarde."
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          },
-          {
-            "access_token_auth": [
-              "user:employee",
-              "user:rh",
-              "user:candidate"
-            ]
-          }
-        ]
-      },
       "delete": {
         "tags": [
           "Cadastro de Funcionários"
@@ -855,8 +704,57 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Vacancy"
-                }
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "classe": {
+                        "type": "integer"
+                      },
+                      "objective": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "affirmative": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": 11,
+                    "classe": 7,
+                    "objective": "Contratação de dev Junior Back End",
+                    "description": "Estamos contratando dev Junior para stack NodeJs+Fasty",
+                    "status": "ativa",
+                    "affirmative": false
+                  },
+                  {
+                    "id": 12,
+                    "classe": 7,
+                    "objective": "Contratação de dev Junior Back End",
+                    "description": "Estamos contratando dev Junior para stack NodeJs+Fasty",
+                    "status": "ativa",
+                    "affirmative": true
+                  },
+                  {
+                    "id": 13,
+                    "classe": 7,
+                    "objective": "Contratação de dev Junior Back End",
+                    "description": "Estamos contratando dev Junior para stack NodeJs+Fasty",
+                    "status": "ativa",
+                    "affirmative": true
+                  }
+                ]
               }
             }
           },
@@ -991,66 +889,6 @@
           }
         ]
       },
-      "patch": {
-        "tags": [
-          "Cadastro de Vagas"
-        ],
-        "summary": "Atualizar parcialmente vaga de emprego",
-        "description": "Atualiza parcialmente os detalhes de uma vaga de emprego específica com base no id fornecido.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id da vaga a ser atualizada",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Vacancy"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Vaga de emprego atualizada com sucesso."
-          },
-          "400": {
-            "description": "Requisição inválida. Verifique os campos enviados."
-          },
-          "401": {
-            "description": "Não autorizado - falha na autenticação"
-          },
-          "403": {
-            "description": "Proibido - falta de permissão"
-          },
-          "404": {
-            "description": "Vaga de emprego não encontrada."
-          },
-          "500": {
-            "description": "Erro interno do servidor. Por favor, tente novamente mais tarde."
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          },
-          {
-            "access_token_auth": [
-              "user:employee",
-              "user:rh",
-              "user:candidate"
-            ]
-          }
-        ]
-      },
       "delete": {
         "tags": [
           "Cadastro de Vagas"
@@ -1153,8 +991,90 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Candidate"
-                }
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "userId": {
+                        "type": "integer"
+                      },
+                      "objective": {
+                        "type": "string"
+                      },
+                      "summary": {
+                        "type": "string"
+                      },
+                      "date_of_birth": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "gender": {
+                        "type": "string"
+                      },
+                      "sexual_orientation": {
+                        "type": "string"
+                      },
+                      "ethnicity": {
+                        "type": "string"
+                      },
+                      "pwd": {
+                        "type": "boolean"
+                      },
+                      "is_employee": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "userId": 20,
+                    "position": "Junior",
+                    "objective": "Dev Junior Backend",
+                    "summary": "Dev Backend Junior",
+                    "date_of_birth": "05/12/1995",
+                    "phone": "81999556622",
+                    "gender": "cis male",
+                    "sexual_orientation": "heterosexual",
+                    "ethnicity": "black",
+                    "pwd": false,
+                    "is_employee": true
+                  },
+                  {
+                    "id": 2,
+                    "userId": 20,
+                    "position": "Junior",
+                    "objective": "Dev Junior Backend",
+                    "summary": "Dev Backend Junior",
+                    "date_of_birth": "05/12/1995",
+                    "phone": "81999556622",
+                    "gender": "cis male",
+                    "sexual_orientation": "heterosexual",
+                    "ethnicity": "black",
+                    "pwd": false,
+                    "is_employee": true
+                  },
+                  {
+                    "id": 3,
+                    "userId": 20,
+                    "position": "Junior",
+                    "objective": "Dev Junior Backend",
+                    "summary": "Dev Backend Junior",
+                    "date_of_birth": "05/12/1995",
+                    "phone": "81999556622",
+                    "gender": "cis male",
+                    "sexual_orientation": "heterosexual",
+                    "ethnicity": "black",
+                    "pwd": false,
+                    "is_employee": true
+                  }
+                ]
               }
             }
           },
@@ -1295,66 +1215,6 @@
           },
           "404": {
             "description": "Candidato não encontrado."
-          },
-          "500": {
-            "description": "Erro interno do servidor. Por favor, tente novamente mais tarde."
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          },
-          {
-            "access_token_auth": [
-              "user:employee",
-              "user:rh",
-              "user:candidate"
-            ]
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "Cadastro de Candidatos"
-        ],
-        "summary": "Atualizar parcialmente candidato",
-        "description": "Atualiza parcialmente os detalhes de um candidato específico com base no id fornecido.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id do candidato a ser atualizado",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Candidate"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Candidato atualizado com sucesso."
-          },
-          "400": {
-            "description": "Requisição inválida. Verifique os campos enviados."
-          },
-          "401": {
-            "description": "Não autorizado - falha na autenticação"
-          },
-          "403": {
-            "description": "Proibido - falta de permissão"
-          },
-          "404": {
-            "description": "Candidato não encontrada."
           },
           "500": {
             "description": "Erro interno do servidor. Por favor, tente novamente mais tarde."
