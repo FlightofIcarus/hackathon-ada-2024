@@ -6,13 +6,12 @@ async function analyzeUserData(Model, tableName) {
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'branco' THEN 1 ELSE 0 END")), 'branco_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'preto' THEN 1 ELSE 0 END")), 'preto_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'pardo' THEN 1 ELSE 0 END")), 'pardo_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'hispânico' THEN 1 ELSE 0 END")), 'hispânico_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'asiático' THEN 1 ELSE 0 END")), 'asiático_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'indígena' THEN 1 ELSE 0 END")), 'indígena_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'asiatico' THEN 1 ELSE 0 END")), 'asiatico_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN ethnicity = 'indigena' THEN 1 ELSE 0 END")), 'indigena_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'masculino' THEN 1 ELSE 0 END")), 'masculino_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'feminino' THEN 1 ELSE 0 END")), 'feminino_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'transgênero' THEN 1 ELSE 0 END")), 'transgênero_count'],
-                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'não_binário' THEN 1 ELSE 0 END")), 'não_binário_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'transgenero' THEN 1 ELSE 0 END")), 'transgenero_count'],
+                [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN gender = 'nao_binario' THEN 1 ELSE 0 END")), 'nao_binario_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN sexual_orientation = 'heterosexual' THEN 1 ELSE 0 END")), 'heterosexual_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN sexual_orientation = 'homosexual' THEN 1 ELSE 0 END")), 'homosexual_count'],
                 [Model.sequelize.fn('SUM', Model.sequelize.literal("CASE WHEN sexual_orientation = 'bisexual' THEN 1 ELSE 0 END")), 'bisexual_count'],
@@ -30,15 +29,14 @@ async function analyzeUserData(Model, tableName) {
                     branco: Math.round((demographics[0].dataValues.branco_count / totalEntries) * 100),
                     preto: Math.round((demographics[0].dataValues.preto_count / totalEntries) * 100),
                     pardo: Math.round((demographics[0].dataValues.pardo_count / totalEntries) * 100),
-                    hispânico: Math.round((demographics[0].dataValues.hispânico_count / totalEntries) * 100),
-                    asiático: Math.round((demographics[0].dataValues.asiático_count / totalEntries) * 100),
-                    indígena: Math.round((demographics[0].dataValues.indígena_count / totalEntries) * 100)
+                    asiatico: Math.round((demographics[0].dataValues.asiatico_count / totalEntries) * 100),
+                    indigena: Math.round((demographics[0].dataValues.indigena_count / totalEntries) * 100)
                 },
                 gender: {
                     masculino: Math.round((demographics[0].dataValues.masculino_count / totalEntries) * 100),
                     feminino: Math.round((demographics[0].dataValues.feminino_count / totalEntries) * 100),
-                    transgênero: Math.round((demographics[0].dataValues.transgênero_count / totalEntries) * 100),
-                    não_binário: Math.round((demographics[0].dataValues.não_binário_count / totalEntries) * 100)
+                    transgenero: Math.round((demographics[0].dataValues.transgenero_count / totalEntries) * 100),
+                    nao_binario: Math.round((demographics[0].dataValues.nao_binario_count / totalEntries) * 100)
                 },
                 sexualOrientation: {
                     heterosexual: Math.round((demographics[0].dataValues.heterosexual_count / totalEntries) * 100),
