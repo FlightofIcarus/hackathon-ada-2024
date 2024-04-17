@@ -6,7 +6,9 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "jest --coverage"
+  },
   "keywords": [
     "diversidade",
     "inclusão",

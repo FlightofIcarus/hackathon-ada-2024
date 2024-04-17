@@ -2,9 +2,9 @@
 
 ### Testes de funções de validação
 
-• Testar função de validação para vazio com string vazia, com símbolo, número, boolean, null, string apenas com espaço em branco, array, objeto e string com texto.
-
 • Testar função de validação para tipo string com string vazia, com símbolo, número, boolean, null, string apenas com espaço em branco, array, objeto e string com texto.
+
+• Testar função de validação para vazio com string vazia, com símbolo, número, boolean, null, string apenas com espaço em branco, array, objeto e string com texto.
 
 • Testar função de validação para string apenas com espaços em branco com string vazia, com símbolo, número, boolean, null, string apenas com espaço em branco, array, objeto e string com texto.
 
@@ -27,4 +27,3 @@
 
 • Testar validação se um input de user type, após passar nas validações de string, faz parte das entradas na lista de inputs válidos com inputs válidos e um não válido.
 
-• Testar validação de status de vaga, após passar nas validações de string, faz parte das entradas na lista de inputs válidos com inputs válidos e um não válido.
