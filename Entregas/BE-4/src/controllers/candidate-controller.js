@@ -42,4 +42,9 @@ const loginCandidate = async (req, res) => {
     }
 }
 
-module.exports = { createCandidate, loginCandidate }
+const getOneCandidate = async (req, res) => {
+    const candidate = req.user
+    return res.status(200).json(candidate)
+}
+
+module.exports = { createCandidate, loginCandidate, getOneCandidate }

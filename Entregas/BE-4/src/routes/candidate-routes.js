@@ -11,5 +11,8 @@ router.route('/')
 router.route('/login')
     .post(controllers.loginCandidate)
 
+router.route('/:id')
+    .get(auth, controllers.getOneCandidate)
+
 
 module.exports = router
