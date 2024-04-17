@@ -1,5 +1,6 @@
 const service = require('../services/candidate-services')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const createCandidate = async (req, res) => {
     let userData = req.body
