@@ -62,15 +62,4 @@ const updateCandidate = async (req, res) => {
         return res.status(500).json({ erro: error.message })
     }
 }
-
-app.put("/:id", async (request, response) => {
-    const filter = {
-        where: { id: request.params.id },
-        returning: true
-    };
-    const [task, _] = await Task.update(request.body, filter);
-    if (!task) return response.status(404).end("Tarefa não encontrada.");
-
-    response.json(task);
-});
-module.exports = { createCandidate, loginCandidate, getOneCandidate, updateCandidate }
+module.exports = { createCandidate, loginCandidate, getOneCandidate, updateCandidate }  
