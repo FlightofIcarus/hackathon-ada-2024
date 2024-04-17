@@ -1,6 +1,6 @@
 const ethnicityValidation = (req,res,next) => {
 
-    const listEthnicity = ['branca','amarela','parda','indigena','asiatico'];
+    const listEthnicity = ['branca','preto','parda','indigena','asiatico'];
 
     if(!listEthnicity.includes(req.query.ethnicity)){
         const err = new Error('valor para etinia não permitido');
