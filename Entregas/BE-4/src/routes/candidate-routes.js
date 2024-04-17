@@ -7,7 +7,8 @@ router.route('/')
     .post(controllers.createCandidate)
 
 
-router.route('/:id')
+router.route('/login')
+    .post(controllers.loginCandidate)
 
 
 module.exports = router

@@ -1,3 +1,4 @@
+const { where } = require('sequelize');
 const { Candidate } = require('../db/db.sync')
 
 const userExists = async (email) => {
@@ -21,4 +22,20 @@ const createCandidate = async (user) => {
     }
 }
 
-module.exports = { userExists, createCandidate }
+const findCandidate = async (email) => {
+    try {
+        const candidate = await Candidate.findOne({ where: { email } })
+        if (!candidate) {
+            return false
+        }
+        return candidate
+    } catch (error) {
+        throw new Error("Erro ao cadastrar o usuário" + error.message)
+    }
+}
+
+module.exports = {
+    userExists,
+    createCandidate,
+    findCandidate,
+}
