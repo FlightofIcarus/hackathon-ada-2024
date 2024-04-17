@@ -13,6 +13,7 @@ router.route('/login')
 
 router.route('/:id')
     .get(auth, controllers.getOneCandidate)
+    .put(auth, controllers.updateCandidate)
 
 
 module.exports = router

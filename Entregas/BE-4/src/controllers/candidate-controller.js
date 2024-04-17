@@ -1,6 +1,7 @@
 const service = require('../services/candidate-services')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const { where } = require('sequelize')
 
 const createCandidate = async (req, res) => {
     let userData = req.body
@@ -47,4 +48,29 @@ const getOneCandidate = async (req, res) => {
     return res.status(200).json(candidate)
 }
 
-module.exports = { createCandidate, loginCandidate, getOneCandidate }
+const updateCandidate = async (req, res) => {
+    const { id, email } = req.user
+    try {
+        const candidate = service.findCandidate(email)
+        if (candidate === false) {
+            return res.status(404).json({ message: 'Usuario não localizado' })
+        }
+
+        await service.updateCandidate(id, req.body)
+        res.status(200).json({ message: 'Candidato atualizado' })
+    } catch (error) {
+        return res.status(500).json({ erro: error.message })
+    }
+}
+
+app.put("/:id", async (request, response) => {
+    const filter = {
+        where: { id: request.params.id },
+        returning: true
+    };
+    const [task, _] = await Task.update(request.body, filter);
+    if (!task) return response.status(404).end("Tarefa não encontrada.");
+
+    response.json(task);
+});
+module.exports = { createCandidate, loginCandidate, getOneCandidate, updateCandidate }

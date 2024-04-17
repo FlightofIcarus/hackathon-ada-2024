@@ -34,8 +34,21 @@ const findCandidate = async (email) => {
     }
 }
 
+const updateCandidate = async (id, candidate) => {
+    try {
+        const filter = {
+            where: { id },
+            returning: true
+        };
+        const [_, newCandidateData] = await Candidate.update(candidate, filter)
+        return newCandidateData
+    } catch (error) {
+        return res.status(500).json({ erro: error.message })
+    }
+}
 module.exports = {
     userExists,
     createCandidate,
     findCandidate,
+    updateCandidate,
 }
